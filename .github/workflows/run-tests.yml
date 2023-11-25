@@ -3,10 +3,13 @@ name: Run Frontend Tests
 on:
   push:
     branches:
-      - main  # ajuste de acordo com sua branch principal
+      - 'main'
+      - '*/Release*'
   pull_request:
     branches:
-      - main  # ajuste de acordo com sua branch principal
+      - 'main'
+      - '*/RC*'
+      - '*/Release*'
 
 jobs:
   build:
