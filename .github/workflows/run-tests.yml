@@ -1,0 +1,28 @@
+name: Run Frontend Tests
+
+on:
+  push:
+    branches:
+      - main  # ajuste de acordo com sua branch principal
+  pull_request:
+    branches:
+      - main  # ajuste de acordo com sua branch principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # ajuste para a versão que seu projeto usa
+
+    - name: Install dependencies
+      run: npm install  # ou yarn install, dependendo do seu gerenciador de pacotes
+
+    - name: Run unit tests
+      run: npm test  # ou o comando específico para rodar os testes no seu projeto
